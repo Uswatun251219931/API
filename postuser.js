@@ -6,6 +6,8 @@ it('Add a new user', () => {
        } 
        cy.request('POST', 'https:reqres.in/api/users', user).then((response) => {
            expect(response.status).equal(201)
-        cy.log(user)
+           expect(res.body.name).to.eq(user.name)
+           expect(res.body.job).to.eq(user.job)
+           //cy.log(user)
        });
    })
